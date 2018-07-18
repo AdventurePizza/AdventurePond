@@ -1,0 +1,90 @@
+<html>
+  <head>
+  <title>Hello, WebVR! - A-Frame </title>
+    <meta name="description" content="Hello, WebVR! - A-Frame" />
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.1.2/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+    <script src="myfont.typeface.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@%5E3.2.x/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script>
+       AFRAME.registerComponent('rayworld', {
+        init: function () {
+          // Solution for Creating Entities.
+          var sceneEl = document.querySelector('a-scene');
+
+          for (var i = 0; i < 50; i++) {
+            var cylinder = document.createElement('a-cylinder');
+            cylinder.setAttribute('material', {color: '#B96FD3'});
+            cylinder.setAttribute('position', {x: Math.random() * 20 - 10, y: Math.random() * 20 - 10, z: Math.random() * 20 - 10});
+            cylinder.setAttribute('scale', {x: Math.random() / 2, y: Math.random() / 2, z: Math.random() / 2});
+            sceneEl.appendChild(cylinder);
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <a-scene rayworld>
+     <a-assets>
+          <img id="boxTexture" src="https://i.imgur.com/JE0jLfM.jpg" crossorigin="anonymous">
+          <img id="sphereTexture" src="https://i.imgur.com/O4qyCZ8.jpg" crossorigin="anonymous">
+          <img id="cylinderTexture" src="https://i.imguhttp://bdfjade.com/wp/5921859.html" crossorigin="anonymous">
+          <img id="groundTexture" src="https://i.imgur.com/K4sPN88.jpg" crossorigin="anonymous">
+
+          <a-asset-item id="optimerBoldFont" src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
+          <a-mixin id="boldFont" text="font: #optimerBoldFont"></a-mixin>
+
+          <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+          <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+          <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+          <img id="city" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
+          <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+          <!--<script id="link" type="text/html">
+          <a-entity class="link"
+            geometry="primitive: plane; height: 1; width: 1"
+            material="shader: flat; src: ${thumb}"
+            event-set__1="_event: mousedown; scale: 1 1 1"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+            event-set__4="_event: mouseleave; scale: 1 1 1"
+            set-image="on: click; target: #image-360; src: ${src}"
+            sound="on: click; src: #click-sound"></a-entity>
+        </script>-->
+
+      </a-assets>
+
+
+      <a-entity id="lightSphere" geometry="primitive: sphere; radius: 0.2" material="shader: flat" light="type: point; color: #FFF" position="0 4 -5"
+               animation="property: position; to: -3.5 5 -40; dir: alternate; loop: true"></a-entity>
+      <a-torus-knot color="#B96FD3" position="0 4 -5" radius-tubular="0.05" p="5" material="" geometry=""></a-torus-knot>
+      <a-text value="Raymonds Funhouse" color="#00000" position="-1.1756742550281387 4.018572297759068 -4.000955829508196" text="value:Ray's Land" scale="2 2 1"></a-text>
+      <a-box src="#boxTexture" position="-0.1509150324882552 0.5364471870375573 -4.405983687693725" rotation="0 90 0" shadow="" material="" geometry="" scale="2 2 2"></a-box>
+      <a-sphere src="#sphereTexture" position="2.0393127176182704 2.8875484746359414 -3.9681434179994346" radius="1" shadow="" material="" geometry="" animation="property: scale; to: 1.5 1.5 1.5; dir: alternate; loop: true"></a-sphere>
+      <a-entity position="2 .5 -4.5" particle-system="preset: dust; particleCount: 10000"></a-entity>
+      <a-entity position="2 .5 -4.5" particle-system="preset: dust; rotationAxis: z"></a-entity>
+      <a-cylinder src="#cylinderTexture" position="2.0250347032727736 1.0616866847208377 -4.015548067190136" radius="0.5" height="2" shadow="" material="" geometry=""></a-cylinder>
+      <a-plane src="#groundTexture" position="0 0 -4" rotation="-90 0 0" width="100" height="100" shadow="" material="" geometry=""></a-plane>
+      <a-sky id="image-360" src="#sechelt" ></a-sky>
+      <a-light type="ambient" color="#666" light=""></a-light>
+      <a-light type="point" intensity="" position="0.1046171869419511 7.799271432259887 -3.75867431957661" light="intensity:1"></a-light>
+      <a-entity position="-7 5 -40" mixin="boldFont" text-geometry="value: What's up"></a-entity>
+      <a-entity position="-3 5 -40" text-geometry="value: Dog?; font: #optimerBoldFont"></a-entity>
+      <a-entity position="-5 -5 -65" text-geometyu="value:i dare u to jump!!; font: #optimerBoldFont"></a-entity>
+
+     <!-- <a-entity id="links" layout="type: line; margin: 1.5" position="0 5 -5">
+        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
+      </a-entity>
+
+      <a-camera>
+        <a-cursor id="cursor"></a-cursor>
+      </a-camera>-->
+
+
+
+    </a-scene>
+
+</body>
+</html>
