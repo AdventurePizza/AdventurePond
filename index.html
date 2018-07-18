@@ -8,6 +8,7 @@
     <script src="myfont.typeface.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@%5E3.2.x/dist/aframe-animation-component.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.animation-mixer@3.4.0/dist/aframe-extras.animation-mixer.js"></script>
     <script>
        AFRAME.registerComponent('rayworld', {
         init: function () {
@@ -26,8 +27,9 @@
     </script>
   </head>
   <body>
-    <a-scene rayworld>
+    <a-scene Rays Land>
      <a-assets>
+          <a-asset-item id="fish" src="C:/AdventurePond/LowPolyFishScene/scene.gtlf"></a-asset-item>
           <img id="boxTexture" src="https://i.imgur.com/JE0jLfM.jpg" crossorigin="anonymous">
           <img id="sphereTexture" src="https://i.imgur.com/O4qyCZ8.jpg" crossorigin="anonymous">
           <img id="cylinderTexture" src="https://i.imguhttp://bdfjade.com/wp/5921859.html" crossorigin="anonymous">
@@ -41,6 +43,8 @@
           <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
           <img id="city" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
           <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+          <!--<a-asset-item id="fish" src="scene.gltf" animation-mixer></a-asset-item>-->
+
           <!--<script id="link" type="text/html">
           <a-entity class="link"
             geometry="primitive: plane; height: 1; width: 1"
@@ -57,7 +61,9 @@
 
 
       <a-entity id="lightSphere" geometry="primitive: sphere; radius: 0.2" material="shader: flat" light="type: point; color: #FFF" position="0 4 -5"
-               animation="property: position; to: -3.5 5 -40; dir: alternate; loop: true"></a-entity>
+               animation="property: position; to: -3.5 5 -40; dir: alternate; loop: true"> </a-entity>
+      <a-gltf-model gltf-model src="#fish"></a-entity>
+
       <a-torus-knot color="#B96FD3" position="0 4 -5" radius-tubular="0.05" p="5" material="" geometry=""></a-torus-knot>
       <a-text value="Raymonds Funhouse" color="#00000" position="-1.1756742550281387 4.018572297759068 -4.000955829508196" text="value:Ray's Land" scale="2 2 1"></a-text>
       <a-box src="#boxTexture" position="-0.1509150324882552 0.5364471870375573 -4.405983687693725" rotation="0 90 0" shadow="" material="" geometry="" scale="2 2 2"></a-box>
@@ -71,9 +77,9 @@
       <a-light type="point" intensity="" position="0.1046171869419511 7.799271432259887 -3.75867431957661" light="intensity:1"></a-light>
       <a-entity position="-7 5 -40" mixin="boldFont" text-geometry="value: What's up"></a-entity>
       <a-entity position="-3 5 -40" text-geometry="value: Dog?; font: #optimerBoldFont"></a-entity>
-      <a-entity position="-5 -5 -65" text-geometyu="value:i dare u to jump!!; font: #optimerBoldFont"></a-entity>
-
-     <!-- <a-entity id="links" layout="type: line; margin: 1.5" position="0 5 -5">
+      <a-entity position="-5 -5 -65" text-geometry="value:i dare u to jump!!; font: #optimerBoldFont"></a-entity>
+      <!--<a-gltf-model src="#fish"></a-gltf-model>
+     <!- <a-entity id="links" layout="type: line; margin: 1.5" position="0 5 -5">
         <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
       </a-entity>
